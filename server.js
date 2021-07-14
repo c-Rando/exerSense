@@ -2,7 +2,9 @@ const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/workout', {
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/workout';
+
+mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
